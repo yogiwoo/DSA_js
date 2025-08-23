@@ -11,7 +11,7 @@
 */
 
 //element selection
-let arr=[4,5,11,98,3,4,18,25]
+let arr = [4, 5, 11, 98, 3, 4, 18, 25]
 // let ans=arr.slice(1,5)   //5,11,98,3
 // console.log(ans)
 
@@ -19,5 +19,27 @@ let arr=[4,5,11,98,3,4,18,25]
 // //-ve element selection
 // let ans2=arr.slice(-3,8) //4
 // console.log("output for neg selection",ans2)
-let ans=arr.slice(-4) //select element from right -4 to all elements
+// let ans=arr.slice(-4) //select element from right -4 to all elements
+// console.log(ans)
+
+//====================================SPLICE=============================
+/*
+    1.splice method manipulates the original array
+    2.it takes 3 arguments start index , number of elements , and element to replace
+*/
+// let a=arr.splice(3,3) //select total 3 elements from index 3 98 , 3,4
+// console.log(a)
+/*
+    1.-ve argument behaviour
+    if the start index is -ve then it select elements from right
+
+*/
+
+/*
+    element replace method
+    */
+
+let ans=arr.splice(2,5,111)
+
 console.log(ans)
+console.log(arr)
