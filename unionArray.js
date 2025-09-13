@@ -24,38 +24,44 @@ function union(a,b){
     let i=0,j=0;
     let res=[]
     while(i<a.length && j<b.length){
-        if(a[i]==b[j]){
+        //start pushing elements into res array;
+        //1. if a and b of thier respective pointer elements are equal then incremenet i and j both
+        if(a[i]===b[j]){
+            //check wather the last element in the result array is == to the current element at i th index of a array
+            //if not then puhs
             if(res[res.length-1]!=a[i]){
                 res.push(a[i])
             }
             i++;
             j++;
         }
+        //if i is smaller then push i after chechking the last ele of res array is not equal
         else if(a[i]<b[j]){
-              if(res[res.length-1]!=a[i]){
-                 res.push(a[i])
-             }
-             i++;
-         }
+          if(res[res.length-1]!=a[i]){
+                res.push(a[i])
+            }
+            i++;
+        }
+        //simillary do for array b with jth index
         else{
             if(res[res.length-1]!=b[j]){
-                
                 res.push(b[j])
             }
-            j++; 
+            j++;
         }
     }
+    //iterate the a and b array 
     while(i<a.length){
         if(res[res.length-1]!=a[i]){
-            res.push(a[i])
-        }
-        i++;
+                res.push(a[i])
+            }
+            i++;
     }
     while(j<b.length){
         if(res[res.length-1]!=b[j]){
-            res.push(b[j]);
-        }
-        j++;
+                res.push(b[j])
+            }
+            j++;
     }
     return res;
 }
