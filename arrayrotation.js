@@ -9,21 +9,47 @@
 //   }
   
 //   console.log(rotate([4,5,10,2,7,13]))
+//===================================geeks for geeks========================
+// function arrayRotation(arr,k){
+//     let d=k%arr.length;
+//     let rotated=[]
+//     let idx=0;
+//     for(let i=d;i<arr.length;i++){
+//         rotated[idx]=arr[i];
+//         idx++
+//     }
+//     //now fill the last element to end of the rotated array
+//     for(let i=0;i<k;i++){
+//         rotated[idx]=arr[i]
+//         idx++
+//     }
+//     return rotated
+// }
 
-function arrayRotation(arr,k){
-    let d=k%arr.length;
-    let rotated=[]
-    let idx=0;
-    for(let i=d;i<arr.length;i++){
-        rotated[idx]=arr[i];
-        idx++
+//============================striver's conventional approach==========================
+function arrayRotation(arr,d){  
+    let k=d%arr.length
+    let n=arr.length
+    let temp=[];
+    for(let i=0;i<d;i++){
+        temp.push(arr[i])
     }
-    //now fill the last element to end of the rotated array
-    for(let i=0;i<k;i++){
-        rotated[idx]=arr[i]
-        idx++
+    for(let i=k;i<n;i++){
+        arr[i-k]=arr[i]
     }
-    return rotated
+    /*when i=4 that is n-d=4
+        then n-d-i means 4-4
+        in 2nd round i-(n-d) = 4-5
+    */
+    for(let i=n-k;i<n;i++){
+        arr[i]=temp[i-(n-k)]
+    }
+    return arr
 }
+console.log(arrayRotation([3,4,5,6,7,10,11],3))
 
-console.log(arrayRotation([3,4,5,6,7,10],3))
+/*
+    optimal approch is to rotate 1st k element and then rotate rest of element from k index
+    then rotate whole array
+    return arr
+*/
